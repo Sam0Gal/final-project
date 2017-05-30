@@ -1,0 +1,18 @@
+1.  "stdint.h" is a header file that declares sets of intger types having specified widths.
+2.  The point is that I want a specific width (or bits) for each intger,
+    like uint32_t is a 32 bits unsigned intger type and cannot be negative.
+3.  BYTE = 8 bits = 1 byte
+    DWORD = 32 bits = 4 bytes "unsigned"
+    LONG = 32 bits = 4 bytes  "signed"
+    WORD = 16 bits = 2 bytes
+4.  the first two bytes of any BMP file must be BM in ASCII or 0x42 0x4D in hexadecimal
+5.  bfSize is the size of the bitmap file in bytes, biSize is the number of bytes that the structure requires.
+6.  It means that the bitmap is a top-down DIB and its origin is upper-left corner.
+7.  biBitCount
+8.  because some problems may happen like running out of memory or something like that but it's rare. (and files cannot be opened).
+9.  because it indicates to the number of elements we want to read, and we read struct so we don't need to read more than one.
+10. padding = (4 - (3 * 3) % 4) % 4
+            = 3
+            the value is 3
+11. It allows us to rewind or fast-forward within the file.
+12. It's a whence argument for fseek() and if it is put to whence, the offsetis relative to the current position indicator.
