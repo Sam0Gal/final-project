@@ -1,0 +1,33 @@
+0.  It's an obscure term ostensibly referring to a lung disease caused by silica dust, sometimes
+    cited as one of the longest words in the English language, and its length is 45 characters.
+
+1.  getrusage() returns resource usage measures for who, which can be one of the following: RUSAGE_SELF and it 
+    returns resource usage statistics for the calling process,
+    which is the sum of resources used by all threads in the process, and there are also RUSAGE_CHILDREN, and RUSAGE_THREAD.
+    and resource usages are returned in the structure pointed to by "usage".
+    
+2.  There are 16 members in a variable of type struct rusage, and we use two of them: ru_utime and ru_stime in speller.c 
+
+3.  because if we pass them by value, calculate() function will take a copy of them and store it on the stack, so more memory will 
+    be taken on the stack, and the process might be slower.
+    
+4.  This loop will iterate over until the cursor of the text file reach the end of the file,
+    first we initialize a variable called c with type int to store the character that has been read from file we check by 
+    fgetc() function, then we will check if this char is alphabetic letter or apostroph, if true then we will write this char
+    to the array called word[] and if the length of the string we're reading is more than 45 (the maximum length of a word)
+    then we'll skip the rest of this string and prepare for a new word (index = 0).
+    
+    if the first condition returns false then we'll check if the char we read is a digit, if true we'll skip the rest of
+    this string (by the while loop) and prepare for a new word by (index = 0), and if false we'll check if variable index
+    is greater than 0 if true we'll terminate the current word by \0 because the reached the end of the word (or string),
+    then increase the number of words that we checked by 1.
+    after that we will check the spelling of the word and calculate the time check() function took to check the word then,
+    if the word is misspelled we print this word with printf(), increase number of misspellings by 1 then prepare for
+    a new word and start from the top of the loop (after updating variable c to be equal to the next char from text file.
+    
+
+5.  fscanf will read commas and period as a part of the word, so there will be imprecision (some words that should be correct
+    will be considered misspelled), and using fgetc() will enable us to keep track of number of characters we read,
+    while fscanf() may cause problems if it read a string longer than the expected (like 45 in speller.c).
+
+6.  Because we don't want anything of the word we check or the dictionary to be changed in any way.
