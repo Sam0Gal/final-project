@@ -1,0 +1,32 @@
+table{
+    width: 100%;
+    border: 2px solid lightslategray;
+    border-collapse: collapse;
+}
+thead th{
+    background-color: lightcyan;
+    height: 40px;
+    font-size: 20px;
+}
+tbody tr:nth-child(odd){
+    background-color: aliceblue;
+    height: 30px;
+}
+tbody tr:nth-child(even){
+    background-color: aquamarine;
+    height: 30px;
+}
+tr{
+    font-size: 17px;
+}
+
+tfoot tr:first-child{
+    font-family: Arial Black;
+    color: darkred;
+    background-color: bisque;
+}
+tfoot tr:last-child{
+    font-family: Arial Black;
+    color: green;
+    background-color: chartreuse;
+}

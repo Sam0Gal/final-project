@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<link href="{{url_for('static', filename='index.css') }}", rel="stylesheet"/>
+    <table>
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>symbol</th>
+                <th>shares</th>
+                <th>price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+    <tbody>
+    {% for stock in stocks %}
+    <tr>
+        <td>{{stock.name}}</td>
+        <td>{{stock.symbol}}</td>
+        <td>{{stock.shares}}</td>
+        <td>{{stock.price}}</td>
+        <td>{{stock.TOTAL}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">STOCKS' TOTAL VALUE</td>
+            <td>{{stocks_total}}</td>
+        </tr>
+
+        <tr>
+            <td colspan="4">CASH</td>
+            <td>{{cash}}</td>
+        </tr>
+    </tfoot>
+    </table>
+    </tbody>
+{% endblock %}
