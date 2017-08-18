@@ -1,0 +1,133 @@
+.card {
+    margin: 30px;
+    height:230px;
+    background: url(paper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;    /* cover or contain*/
+    display: inline-block;
+    word-wrap: break-word;
+    font-family: "comic sans MS";
+    float: left;
+    padding-right: 60px;
+    z-index:-1;
+}
+.new {
+    opacity:0;
+}
+
+.delete {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+    position: relative;
+    top: 28px;
+    left: 120%;
+    display: none;
+    padding-top: 1px;
+    padding-left: 3px;
+    cursor: pointer;
+}
+.edit {
+    width: 35px;
+    height: 35px;
+    background-color: green;
+    border-radius: 50%;
+    position: relative;
+    top: 30px;
+    left: 119%;
+    padding-top: 4px;
+    display: none;
+    cursor: pointer;
+}
+
+#add, #edit{
+    display: none;
+}
+.right {
+    width: 200px;
+    height: 100%;
+    text-align: center;
+    background-color: aqua;
+    position: fixed;
+    left:calc(100% - 200px);    /* 200px is the width.*/
+    top:55px;    /* for navbar*/
+}
+
+.colors {
+    width:150px;
+    height:30px;
+    border-radius:20%;
+    opacity:0.5;
+}
+.yellow {
+    background-color:yellow;
+}
+.red {
+    background-color:red;
+}
+.orange {
+    background-color:orange;
+}
+.violet {
+    background-color:violet;
+}
+.blue {
+    background-color:blue;
+}
+.white {
+    background-color:white;
+}
+.green {
+    background-color:green;
+}
+#selected {
+    margin:10px;
+    position:relative;
+    
+    left:50%;
+    width: 60px;
+    height: 30px;
+    background-color: grey;
+    border-radius: 20%;
+}
+#label {
+    display:block;
+    position:relative;
+    top: 37px;
+    left:-25px;
+}
+#addnote {
+    margin:10px;
+}
+.border {
+    border: solid 2px black;
+}
+.cards {
+    width:calc(100% - 200px);
+    position: relative;
+    top:50px;
+}
+.info {
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background-color:black;
+    font-size:40px;
+    margin:75px;
+    border:MidnightBlue 3px solid;
+    opacity:.8;
+    cursor:pointer;
+}
+.p {
+    position:relative;
+    bottom:6px;
+}
+div {
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+}
+button.colors:focus {
+    outline:0;
+}

@@ -1,0 +1,43 @@
+a {
+    opacity:0.8;
+}
+a:hover {
+    opacity:1;
+}
+.form-horizontal {
+    position:relative;
+    top: 50px;
+    left:250px;
+}
+.messages {
+    z-index:10;
+    position:absolute;
+    left:calc(50% - 200px);
+    top: 23px;
+    background-color:lightcoral;
+    width:400px;
+    height:50px;
+    text-align:center;
+    margin-top: 30px;
+    /*border-left: 5px solid;*/
+    border-bottom: 2px ridge;
+    display:none;
+    font-size:large;
+    padding-top:10px;
+    opacity:0;
+}
+.margin {
+    margin-top:50px;
+}
+.logout {
+    float:right;
+}
+body {
+    background:url(reflection.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-size:100%;
+    background-color:rgba(27, 157, 255, 0.3);
+    
+    background-attachment:fixed;
+}

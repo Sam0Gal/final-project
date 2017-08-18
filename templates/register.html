@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %} Register {% endblock %}
+{% block script %}
+<script type="text/javascript" src="{{url_for('static', filename='register.js')}}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='move.css') }}" type="text/css" />
+{% endblock %}
+{% block main %}
+    <div class="alert alert-danger alert-dismissible" role="alert" id="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">&times;</span></button>
+        
+    </div>
+        <form class="move" action="{{ url_for('register') }}" method="post">
+            <div class="form-group">
+                <label for="username" class="col-sm-2 control-label margin">Username:</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" autocomplete="off"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">Password:</label>
+                <div class="col-sm-2">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="******"/>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm" class="col-sm-2 control-label">Confirm Password:</label>
+                <div class="col-sm-2">
+                    <input type="password" name="confirm" class="form-control" id="confirm" placeholder="******"/>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-default" id="register" type="submit">Register</button>
+                </div>
+            </div>
+        </form>
+    </body>
+{% endblock %}
