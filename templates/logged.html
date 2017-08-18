@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    home
+{% endblock %}
+{% block script %}
+<script type="text/javascript" src="{{ url_for('static', filename='logged.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='logged.css') }}" type="text/css" />
+{% endblock %}
+
+{% block main %}
+    <div class="right">
+        <button type="button" class="btn btn-primary btn-lg" id="addnote" data-toggle="modal" data-target="#note">add note</button>
+        <label for="selected" id="label"><strong>Selected:</strong></label>
+        <div id="selected"><b>random</b></div>
+        
+            <button class="yellow colors" value="yellow"></button>
+            <button class="blue colors" value="blue"></button>
+            <button class="green colors" value="green"></button>
+            <button class="red colors" value="red"></button>
+            <button class="orange colors" value="orange"></button>
+            <button class="violet colors" value="violet"></button>
+            <button class="white colors" value="white"></button>
+            <button class="colors" value="random">Random</button>
+            <div class="info" data-toggle="popover" data-placement="left" title="HELP" data-content="You can change the color of a note by clicking on it and choosing a color, you can also edit or delete it.">
+                <span class="p">?</span>
+            </div>
+            
+    </div>
+    <div class="cards"></div>
+
+<div class="modal fade" id="note" tabindex="-1" role="dialog" aria-labelledby="longModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="longModal">Modal Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="noteTitle" class="form-control-label">Note title:</label>
+                        <input autocomplete="off" maxlength="22" type="text" class="form-control" name="noteTitle" id="noteTitle"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="noteBody" class="form-control-label">Note body:</label>
+                        <textarea maxlength="120" type="text" class="form-control" name="noteBody" id="noteBody"></textarea>
+                    </div>
+
+                    <!--<div class="form-group">
+                        <label for="notePhoto" class="form-control-label">Photo:</label>
+                        <input type="text" class="form-control" name="notePhoto" placeholder="URL for photo" id="notePhoto"/>
+                    </div>-->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="add">Add</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="edit">edit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- for logging out-->
+<div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">log out</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to log out ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success">Yes</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta charset="utf-8"/>
+        <meta content="initial-scale=1, width=device-width" name="viewport"/>
+        
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        
+        <script type="text/javascript" src="{{url_for('static', filename='layout.js')}}"></script>
+        
+        {% block script %}{% endblock %}
+        <!-- tether -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <!-- tether -->
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}" type="text/css" />
+        
+        {{ JSGlue.include() }}
+    </head>
+    <body>
+        <nav class="navbar navbar-toggleable-md navbar-light" style="background-color: #00BFFF;position:fixed;width:100%">
+            
+            <div class="collapse navbar-collapse" id="navbarText">
+                {% if not session.username %}
+            <a class="navbar-brand" href="{{url_for('index')}}">Home</a>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('login')}}" style="color: #000000;">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('register')}}" style="color: #000000;">Register</a>
+              </li>
+            </ul>
+                {% else %}
+            <a class="navbar-brand" href="{{url_for('index')}}" data-toggle="modal" data-target="#logout">Home</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="{{url_for('logout')}}" style="color: #000000;" data-toggle="modal" data-target="#logout">Logout</a>
+              </li>
+            </ul>
+            {% endif %}
+            </div>
+        </nav>
+        <div class="messages">
+            <!--{% with messages = get_flashed_messages() %}-->
+            {% if messages %}
+                {% for message in messages %}
+                    <span class="message">{{ message }}</span>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+            <main>
+                {% block main %}{% endblock %}
+            </main>
+        
+    </body>
+</html>

@@ -1,0 +1,14 @@
+.form-group {
+    position:relative;
+    top:100px;
+    left:calc(50% - 200px);
+    width: 1000px;
+}
+body {
+    overflow:hidden;
+}
+#alert {
+    position:relative;
+    top:50px;
+    display:none;
+}
